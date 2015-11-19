@@ -17,7 +17,12 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>GFE - Serial Number Burner</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>:/new/prefix1/gfe_icon.ico</normalon>
+   </iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout">

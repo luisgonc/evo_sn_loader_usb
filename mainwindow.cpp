@@ -5,7 +5,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+// Number of different PIDs
+//
+#define NUMBER_OF_PIDS  5
 
+// List of all the PID numbers from GFE products.
+//
+static const unsigned short pid_list[NUMBER_OF_PIDS] =
+{
+    0x0100, 0x0200, 0x0300, 0x0301, 0x0302
+};
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -28,6 +37,7 @@ void MainWindow::ExtraInitialization(void)
 
 void MainWindow::on_ButtonConnect_clicked()
 {
+    unsigned int i;
 
     if(ConnectionEstablished)
     {
@@ -55,7 +65,17 @@ void MainWindow::on_ButtonConnect_clicked()
             OUsbHid.ClosePort();
         }
 
-        OUsbHid.OpenUSBDevice(0x04D8, 0x003C);
+        // Run the entire list of PIDs
+        //
+        for(i = 0; i < NUMBER_OF_PIDS; i++)
+        {
+            OUsbHid.OpenUSBDevice(0x2C1E, pid_list[i]);
+
+            if(OUsbHid.GetPortOpenStatus())
+            {
+                break; // Get out in the first successfull connection
+            }
+        }
 
         if(OUsbHid.GetPortOpenStatus())
         {

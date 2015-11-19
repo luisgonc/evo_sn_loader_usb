@@ -33,9 +33,9 @@ bool CUsbHid::OpenUSBDevice(unsigned int vid, unsigned int pid)
 
     if(!hidDevice)
     {
-        QString error;
-        error.sprintf("USB Device with VID= %04X and PID= %04X is not found", vid, pid);
-        QMessageBox::warning(NULL, "Error opening USB Device", error, QMessageBox::Ok);
+        //QString error;
+        //error.sprintf("USB Device with VID= %04X and PID= %04X is not found", vid, pid);
+        //QMessageBox::warning(NULL, "Error opening USB Device", error, QMessageBox::Ok);
     }
     else
     {

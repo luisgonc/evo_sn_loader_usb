@@ -30,3 +30,6 @@ win32: LIBS += -L$$PWD/../../Qt/Qt5.4.1/Tools/mingw491_32/i686-w64-mingw32/lib/ 
 
 INCLUDEPATH += $$PWD/../../Qt/Qt5.4.1/Tools/mingw491_32/i686-w64-mingw32/include
 DEPENDPATH += $$PWD/../../Qt/Qt5.4.1/Tools/mingw491_32/i686-w64-mingw32/include
+
+RESOURCES += \
+    images.qrc
